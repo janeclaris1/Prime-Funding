@@ -4,13 +4,19 @@ import Link from "next/link"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { Globe, Mail, Share2 } from "lucide-react"
+import { Globe, Mail, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { newsletterSchema, type NewsletterData } from "@/lib/validations"
-import { COMPANY_NAME, CONTACT_EMAIL } from "@/lib/contact"
+import { COMPANY_NAME, CONTACT_EMAIL, CONTACT_MAILTO } from "@/lib/contact"
 import { submitEnquiry } from "@/lib/submit-enquiry"
+
+const contactIcons = [
+  { href: CONTACT_MAILTO, icon: Mail, label: "Email us" },
+  { href: "/", icon: Globe, label: "Home" },
+  { href: "tel:+13054971879", icon: Phone, label: "Call us" },
+]
 
 const quickLinks = [
   { href: "/", label: "Home" },
@@ -67,33 +73,16 @@ export default function Footer() {
               discerning clients worldwide.
             </p>
             <div className="mt-6 flex gap-2">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-accent"
-                aria-label="LinkedIn"
-              >
-                <Share2 className="h-5 w-5" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-accent"
-                aria-label="Twitter"
-              >
-                <Globe className="h-5 w-5" />
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-accent"
-                aria-label="Facebook"
-              >
-                <Mail className="h-5 w-5" />
-              </a>
+              {contactIcons.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-accent"
+                  aria-label={item.label}
+                >
+                  <item.icon className="h-5 w-5" />
+                </a>
+              ))}
             </div>
           </div>
 
