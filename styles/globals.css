@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 0.5rem;
+  --background: #f8f9fa;
+  --foreground: #0d0f12;
+  --card: #ffffff;
+  --card-foreground: #0d0f12;
+
+  --primary: #0b3d91;
+  --primary-foreground: #ffffff;
+  --primary-light: #1a56c4;
+
+  --accent: #c9a84c;
+  --accent-foreground: #0d0f12;
+
+  --muted: #f1f3f5;
+  --muted-foreground: #6b7280;
+
+  --border: #e5e7eb;
+  --ring: #0b3d91;
+
+  --success: #10b981;
+  --destructive: #ef4444;
+}
+
+.dark {
+  --background: #070b14;
+  --foreground: #f0f2f5;
+  --card: #0f1623;
+  --card-foreground: #f0f2f5;
+
+  --primary: #1a56c4;
+  --primary-foreground: #ffffff;
+  --primary-light: #2d6ee8;
+
+  --accent: #d4a847;
+  --accent-foreground: #070b14;
+
+  --muted: #131c2e;
+  --muted-foreground: #9ca3af;
+
+  --border: #1e2d45;
+  --ring: #1a56c4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
