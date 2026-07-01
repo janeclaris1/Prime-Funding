@@ -60,8 +60,14 @@
     @apply border-border;
   }
 
+  html {
+    overflow-x: clip;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     @apply bg-background text-foreground font-body antialiased;
+    overflow-x: clip;
   }
 
   h1,

@@ -3,8 +3,13 @@ import { CtaFormProvider } from "@/components/shared/CtaFormProvider"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 import { Playfair_Display, Inter } from "next/font/google"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import "@/styles/globals.css"
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+}
 
 const playfair = Playfair_Display({
   subsets: ["latin"],

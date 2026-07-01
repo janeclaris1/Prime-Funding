@@ -56,7 +56,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-border bg-card">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <Link href="/" className="font-display text-2xl font-bold">
@@ -66,12 +66,12 @@ export default function Footer() {
               Expert investment management and flexible loan solutions for
               discerning clients worldwide.
             </p>
-            <div className="mt-6 flex gap-4">
+            <div className="mt-6 flex gap-2">
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground transition-colors hover:text-accent"
+                className="flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-accent"
                 aria-label="LinkedIn"
               >
                 <Share2 className="h-5 w-5" />
@@ -80,7 +80,7 @@ export default function Footer() {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground transition-colors hover:text-accent"
+                className="flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-accent"
                 aria-label="Twitter"
               >
                 <Globe className="h-5 w-5" />
@@ -89,7 +89,7 @@ export default function Footer() {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground transition-colors hover:text-accent"
+                className="flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted hover:text-accent"
                 aria-label="Facebook"
               >
                 <Mail className="h-5 w-5" />
@@ -139,14 +139,14 @@ export default function Footer() {
               <li>Mon-Fri, 8am-6pm</li>
             </ul>
             <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-2">
-              <div className="flex gap-2">
+              <div className="flex flex-col gap-2 sm:flex-row">
                 <Input
                   type="email"
                   placeholder="Your email"
                   {...register("email")}
                   className="flex-1"
                 />
-                <Button type="submit" disabled={status === "loading"} size="sm">
+                <Button type="submit" disabled={status === "loading"} className="w-full sm:w-auto">
                   {status === "loading" ? "..." : "Subscribe"}
                 </Button>
               </div>

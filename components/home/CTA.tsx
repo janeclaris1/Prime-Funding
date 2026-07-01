@@ -27,7 +27,7 @@ export default function HomeNewsletter() {
 
 export function CTA() {
   return (
-    <section className="bg-foreground py-24 dark:bg-card">
+    <section className="bg-foreground py-16 dark:bg-card md:py-24">
       <FadeUpSection className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
         <GoldAccentBar className="mx-auto mb-6" />
         <h2 className="font-display text-3xl font-semibold text-background dark:text-foreground md:text-4xl">
@@ -36,8 +36,8 @@ export function CTA() {
         <p className="mx-auto mt-4 max-w-xl text-background/70 dark:text-muted-foreground">
           Take the first step toward financial excellence with Prime Funding.
         </p>
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <CtaButton size="lg" variant="accent" subject="Investment Enquiry">
+        <div className="mt-8 flex w-full flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
+          <CtaButton size="lg" variant="accent" subject="Investment Enquiry" className="w-full sm:w-auto">
             Start Investing
             <ArrowRight className="h-4 w-4" />
           </CtaButton>
@@ -45,7 +45,7 @@ export function CTA() {
             size="lg"
             variant="outline"
             subject="Loan Application"
-            className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
+            className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground sm:w-auto"
           >
             Apply for a Loan
           </CtaButton>

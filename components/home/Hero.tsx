@@ -80,7 +80,7 @@ export default function Hero() {
   const activeSlide = slides[current]
 
   return (
-    <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden">
+    <section className="relative -mt-16 flex min-h-[85vh] items-center justify-center overflow-hidden pt-16 sm:min-h-[90vh]">
       {/* Background slider */}
       <div className="absolute inset-0" aria-hidden="true">
         {slides.map((slide, index) => (
@@ -108,27 +108,27 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 20 }}
           transition={{ duration: reducedMotion ? 0.01 : 0.4 }}
-          className="absolute left-4 top-24 z-20 sm:left-8 lg:left-12"
+          className="absolute left-4 top-20 z-20 max-w-[calc(100%-2rem)] sm:left-8 sm:top-24 lg:left-12"
         >
           <button
             type="button"
             onClick={() => openCtaForm({ subject: activeSlide.subject })}
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+            className="inline-flex max-w-full items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-2 text-xs font-medium text-white backdrop-blur-sm transition-colors hover:bg-accent hover:text-accent-foreground sm:px-4 sm:text-sm"
           >
-            <span className="h-2 w-2 rounded-full bg-accent" />
-            {activeSlide.label}
+            <span className="h-2 w-2 shrink-0 rounded-full bg-accent" />
+            <span className="truncate">{activeSlide.label}</span>
           </button>
         </motion.div>
       </AnimatePresence>
 
       {/* Hero content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-24 text-center sm:px-6 lg:px-8">
-        <GoldAccentBar className="mx-auto mb-8" />
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-20 text-center sm:px-6 sm:py-24 lg:px-8">
+        <GoldAccentBar className="mx-auto mb-6" />
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="font-display text-5xl font-bold text-white md:text-7xl"
+          className="font-display text-4xl font-bold text-white sm:text-5xl md:text-7xl"
         >
           Your Wealth, Intelligently Managed
         </motion.h1>
@@ -136,7 +136,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
-          className="mx-auto mt-6 max-w-2xl text-lg text-white/80 md:text-xl"
+          className="mx-auto mt-4 max-w-2xl text-base text-white/80 sm:mt-6 sm:text-lg md:text-xl"
         >
           Expert investment strategies and flexible loan solutions designed for
           your financial future.
@@ -145,9 +145,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7 }}
-          className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          className="mt-8 flex w-full flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4"
         >
-          <CtaButton size="lg" variant="accent" subject="Investment Enquiry">
+          <CtaButton
+            size="lg"
+            variant="accent"
+            subject="Investment Enquiry"
+            className="w-full sm:w-auto"
+          >
             Explore Investments
             <ArrowRight className="h-4 w-4" />
           </CtaButton>
@@ -155,7 +160,7 @@ export default function Hero() {
             size="lg"
             variant="outline"
             subject="Loan Application"
-            className="border-white/30 bg-white/10 text-white hover:bg-white/20 hover:text-white"
+            className="w-full border-white/30 bg-white/10 text-white hover:bg-white/20 hover:text-white sm:w-auto"
           >
             Apply for a Loan
           </CtaButton>
@@ -163,27 +168,31 @@ export default function Hero() {
       </div>
 
       {/* Slider controls */}
-      <div className="absolute bottom-8 left-0 right-0 z-20 flex items-center justify-center gap-4 px-4">
+      <div className="absolute bottom-6 left-0 right-0 z-20 flex items-center justify-center gap-3 px-4 sm:bottom-8 sm:gap-4">
         <button
           type="button"
           onClick={prev}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
           aria-label="Previous slide"
         >
           <ChevronLeft className="h-5 w-5" />
         </button>
 
-        <div className="flex gap-2">
+        <span className="min-w-[3rem] text-center text-sm font-medium text-white/90 sm:hidden">
+          {current + 1} / {slides.length}
+        </span>
+
+        <div className="hidden gap-2 sm:flex">
           {slides.map((slide, index) => (
             <button
               key={slide.label}
               type="button"
               onClick={() => goTo(index)}
               className={cn(
-                "h-2 rounded-full transition-all",
+                "min-h-[12px] min-w-[12px] rounded-full transition-all",
                 index === current
                   ? "w-8 bg-accent"
-                  : "w-2 bg-white/40 hover:bg-white/70"
+                  : "w-3 bg-white/40 hover:bg-white/70"
               )}
               aria-label={`Go to ${slide.label} slide`}
               aria-current={index === current ? "true" : undefined}
@@ -194,7 +203,7 @@ export default function Hero() {
         <button
           type="button"
           onClick={next}
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm transition-colors hover:bg-white/20"
           aria-label="Next slide"
         >
           <ChevronRight className="h-5 w-5" />

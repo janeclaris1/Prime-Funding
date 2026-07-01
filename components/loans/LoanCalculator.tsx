@@ -53,7 +53,7 @@ export default function LoanCalculator() {
   )
 
   return (
-    <FadeUpSection className="bg-muted py-24">
+    <FadeUpSection className="bg-muted py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <GoldAccentBar className="mx-auto mb-6" />
@@ -123,29 +123,34 @@ export default function LoanCalculator() {
               </Select>
             </div>
 
-            <div className="grid gap-4 rounded-lg border border-border bg-card p-6 sm:grid-cols-3">
+            <div className="grid gap-4 rounded-lg border border-border bg-card p-4 sm:p-6 sm:grid-cols-3">
               <div>
                 <p className="text-sm text-muted-foreground">Monthly Payment</p>
-                <p className="font-display text-2xl font-bold text-primary">
+                <p className="font-display text-xl font-bold text-primary sm:text-2xl">
                   {formatCurrency(results.monthlyPayment)}
                 </p>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Total Repayment</p>
-                <p className="font-display text-2xl font-bold">
+                <p className="font-display text-xl font-bold sm:text-2xl">
                   {formatCurrency(results.totalRepayment)}
                 </p>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Total Interest</p>
-                <p className="font-display text-2xl font-bold text-accent">
+                <p className="font-display text-xl font-bold text-accent sm:text-2xl">
                   {formatCurrency(results.totalInterest)}
                 </p>
               </div>
             </div>
           </CardContent>
-          <CardFooter className="flex justify-center border-t border-border pt-6">
-            <CtaButton variant="accent" subject="Loan Application" details={applyDetails}>
+          <CardFooter className="flex flex-col justify-center border-t border-border pt-6 sm:flex-row">
+            <CtaButton
+              variant="accent"
+              subject="Loan Application"
+              details={applyDetails}
+              className="w-full sm:w-auto"
+            >
               Apply with these details
             </CtaButton>
           </CardFooter>

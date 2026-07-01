@@ -38,7 +38,7 @@ function StatItem({
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5 }}
     >
-      <p className="font-display text-3xl font-bold text-primary md:text-4xl">
+      <p className="font-display text-2xl font-bold text-primary sm:text-3xl md:text-4xl">
         {prefix}
         {formatted}
         {suffix}
@@ -50,8 +50,8 @@ function StatItem({
 
 export default function Stats() {
   return (
-    <section className="border-y border-border bg-card py-16">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
+    <section className="border-y border-border bg-card py-12 md:py-16">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 sm:gap-8 sm:px-6 md:grid-cols-4 lg:px-8">
         {stats.map((stat) => (
           <StatItem key={stat.label} {...stat} />
         ))}

@@ -20,8 +20,8 @@ export default function ReviewGrid() {
 
   return (
     <>
-      <FadeUpSection className="border-b border-border bg-card py-12">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
+      <FadeUpSection className="border-b border-border bg-card py-10 sm:py-12">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 sm:gap-8 sm:px-6 md:grid-cols-4 lg:px-8">
           {reviewStats.map((stat) => (
             <div key={stat.label} className="text-center">
               <p className="font-display text-3xl font-bold text-primary md:text-4xl">
@@ -33,7 +33,7 @@ export default function ReviewGrid() {
         </div>
       </FadeUpSection>
 
-      <FadeUpSection className="py-24">
+      <FadeUpSection className="py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <GoldAccentBar className="mx-auto mb-6" />
@@ -54,7 +54,7 @@ export default function ReviewGrid() {
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true, amount: 0.2 }}
-                className="py-16 first:pt-0 last:pb-0"
+                className="py-10 first:pt-0 last:pb-0 md:py-16"
               >
                 <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] md:items-stretch md:gap-16">
                   <ReviewCard review={pair[0]} compact />

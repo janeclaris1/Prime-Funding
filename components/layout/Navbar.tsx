@@ -37,6 +37,13 @@ export default function Navbar() {
     setMobileOpen(false)
   }, [pathname])
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : ""
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [mobileOpen])
+
   return (
     <header
       className={cn(
@@ -46,7 +53,7 @@ export default function Navbar() {
           : "bg-transparent"
       )}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:py-4 sm:px-6 lg:px-8">
         <Link href="/" className="font-display text-xl font-bold">
           <span className="text-accent">Prime</span> Funding
         </Link>
@@ -105,6 +112,7 @@ export default function Navbar() {
           <Button
             variant="ghost"
             size="icon"
+            className="h-11 w-11"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -121,7 +129,7 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   className={cn(
-                    "block rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                    "block rounded-md px-3 py-3 text-base font-medium transition-colors",
                     pathname === link.href
                       ? "bg-muted text-foreground"
                       : "text-muted-foreground hover:bg-muted hover:text-foreground"

@@ -32,7 +32,7 @@ const contactDetails = [
 
 export default function ContactInfo() {
   return (
-    <FadeUpSection className="rounded-2xl border border-white/5 bg-[#0d1322]/60 p-8 md:p-10">
+    <FadeUpSection className="rounded-2xl border border-white/5 bg-[#0d1322]/60 p-6 sm:p-8 md:p-10">
       <h2 className="text-lg font-bold uppercase tracking-[0.2em] text-white">
         Get in Touch
       </h2>

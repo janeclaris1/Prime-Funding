@@ -1,8 +1,14 @@
-import { MongoClient, type Db } from "mongodb"
+import { MongoClient, type Db, type MongoClientOptions } from "mongodb"
 
 declare global {
   // eslint-disable-next-line no-var
   var _mongoClientPromise: Promise<MongoClient> | undefined
+}
+
+const clientOptions: MongoClientOptions = {
+  // Avoids TLS handshake failures on some serverless hosts (e.g. Vercel).
+  autoSelectFamily: false,
+  serverSelectionTimeoutMS: 10000,
 }
 
 function getClientPromise(): Promise<MongoClient> {
@@ -13,13 +19,13 @@ function getClientPromise(): Promise<MongoClient> {
 
   if (process.env.NODE_ENV === "development") {
     if (!global._mongoClientPromise) {
-      const client = new MongoClient(uri)
+      const client = new MongoClient(uri, clientOptions)
       global._mongoClientPromise = client.connect()
     }
     return global._mongoClientPromise
   }
 
-  const client = new MongoClient(uri)
+  const client = new MongoClient(uri, clientOptions)
   return client.connect()
 }
 

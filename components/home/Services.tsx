@@ -40,7 +40,7 @@ const services = [
 
 export default function Services() {
   return (
-    <FadeUpSection className="py-24">
+    <FadeUpSection className="py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <GoldAccentBar className="mx-auto mb-6" />

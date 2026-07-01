@@ -25,24 +25,26 @@ export default function ReviewCard({
       )}
     >
       <CardContent className={cn("p-0", !compact && "p-0")}>
-        <div className="flex h-full items-stretch gap-6 md:gap-8">
+        <div className="flex h-full flex-col items-stretch gap-4 md:flex-row md:gap-8">
           {review.image && (
             <div
               className={cn(
                 "shrink-0 overflow-hidden rounded-lg",
-                compact ? "w-48 sm:w-56 md:w-64" : "w-2/5 max-w-[340px]"
+                compact
+                  ? "aspect-[4/3] w-full md:aspect-auto md:w-56 lg:w-64"
+                  : "aspect-[4/3] w-full md:aspect-auto md:w-2/5 md:max-w-[340px]"
               )}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={review.image}
                 alt={`${review.name}, ${review.service}`}
-                className="h-full min-h-[260px] w-full object-cover object-center md:min-h-[300px]"
+                className="h-full w-full object-cover object-center md:min-h-[300px]"
               />
             </div>
           )}
 
-          <div className="flex min-w-0 flex-1 flex-col justify-center py-2">
+          <div className="flex min-w-0 flex-1 flex-col justify-center py-1 md:py-2">
             <div className={cn("mb-3 flex gap-1", compact && "mb-2.5")}>
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star

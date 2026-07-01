@@ -13,7 +13,7 @@ export default function ContactPage() {
   return (
     <>
       <ContactHero />
-      <section className="bg-[#0a0f1c] py-24">
+      <section className="bg-[#0a0f1c] py-16 md:py-24">
         <div className="mx-auto grid max-w-7xl items-start gap-8 px-4 sm:px-6 lg:grid-cols-3 lg:px-8">
           <div className="lg:col-span-1">
             <ContactInfo />

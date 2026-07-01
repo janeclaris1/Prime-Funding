@@ -5,7 +5,7 @@ import GoldAccentBar from "@/components/shared/GoldAccentBar"
 
 export default function ReviewsHero() {
   return (
-    <section className="relative overflow-hidden bg-primary py-20 md:py-28">
+    <section className="relative overflow-hidden bg-primary py-16 md:py-20 lg:py-28">
       <div className="absolute inset-0 opacity-10">
         <div
           className="h-full w-full bg-cover bg-center"
@@ -18,7 +18,7 @@ export default function ReviewsHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="font-display text-5xl font-bold text-primary-foreground md:text-6xl"
+          className="font-display text-4xl font-bold text-primary-foreground sm:text-5xl md:text-6xl"
         >
           Client Reviews
         </motion.h1>
