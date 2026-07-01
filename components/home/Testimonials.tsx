@@ -10,7 +10,9 @@ import HomeTestimonialCard from "@/components/home/HomeTestimonialCard"
 import { reviews } from "@/lib/reviews"
 import { staggerContainer, staggerItem } from "@/hooks/useScrollAnimation"
 
-const featuredReviews = reviews.filter((review) => review.image).slice(0, 3)
+const featuredReviews = reviews.filter((review) =>
+  ["Marcus Williams", "Angela Brooks", "Elena Rodriguez"].includes(review.name)
+)
 
 export default function Testimonials() {
   return (

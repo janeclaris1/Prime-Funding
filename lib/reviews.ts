@@ -97,6 +97,36 @@ export const reviews: Review[] = [
     quote:
       "We refinanced through Prime Funding and saved significantly on monthly repayments. The calculator on their site matched the final offer exactly.",
   },
+  {
+    name: "Marcus Williams",
+    role: "CEO, Meridian Holdings",
+    service: "Business Loan",
+    country: "United States",
+    countryCode: "US",
+    image: "/images/review-marcus-williams.png",
+    quote:
+      "Prime Funding provided the capital structure we needed to scale our operations. Their team understood our growth targets and delivered terms that worked from day one.",
+  },
+  {
+    name: "Angela Brooks",
+    role: "Senior Managing Partner",
+    service: "Investment Portfolio",
+    country: "United States",
+    countryCode: "US",
+    image: "/images/review-angela-brooks.png",
+    quote:
+      "I recommend Prime Funding to clients who need a serious partner, not a sales pitch. Their reporting is clear, their process is disciplined, and the results speak for themselves.",
+  },
+  {
+    name: "Daniel Foster",
+    role: "Private Investor",
+    service: "Investment Portfolio",
+    country: "United States",
+    countryCode: "US",
+    image: "/images/review-daniel-foster.png",
+    quote:
+      "My family's future was always the priority. I was guided through every step with patience and honesty, and today I have the peace of mind I had been searching for.",
+  },
 ]
 
 export const reviewStats = [
